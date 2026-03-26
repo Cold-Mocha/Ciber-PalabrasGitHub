@@ -9,7 +9,7 @@ Herramienta simple que lee repos públicos de GitHub (Python y Java), toma los n
 ## Decisiones y supuestos
 - Se lee TODO el repositorio (todos los archivos .py y .java) por cada proyecto.
 - Redis se usa como cola de mensajes ligera para transportar eventos rápido entre productor y consumidor.
-- El token de GitHub amplía el número de peticiones (funciona sin él, pero con límite de 60 req/h).
+- El token de GitHub amplía el número de peticiones (funciona sin él, pero con límite)
 
 ## Cómo ejecutar
 Requisitos: Docker y docker-compose instalados.
