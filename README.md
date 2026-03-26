@@ -21,14 +21,14 @@ cd PythonProject
 ```
 
 2) Configurar entorno
-- Copia `.env.example` a `.env` y completa `GITHUB_TOKEN` (opcional, sin token el límite es 60 req/h).
+- Copia `.env.example` a `.env` y completa `GITHUB_TOKEN` (opcional, sin token el límite es 60 request/hora)
 
 3) Levantar servicios
 ```bash
 docker compose up --build
 ```
 4) Ver el dashboard
-- Abre: `http://localhost:8000` (health: `http://localhost:8000/healthz`). Ajusta Top-N en la UI; el panel se actualiza en vivo.
+- Abre: `http://localhost:8000`
 
 5) Detener
 ```bash
