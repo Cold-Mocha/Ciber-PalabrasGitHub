@@ -1,6 +1,7 @@
 # Palabras Contador - Github Mining y Visualización en Tiempo Real
 
-Herramienta simple que lee repos públicos de GitHub (Python y Java), toma los nombres de funciones/métodos y cuenta las palabras más usadas. Funciona como productor–consumidor: el **Miner** envía datos a Redis y el **Visualizer** los muestra en vivo.
+Herramienta simple que lee repos públicos de GitHub (Python y Java), toma los nombres de funciones/métodos y cuenta las palabras más usadas. Funciona como productor–consumidor
+**Miner** envía datos a Redis y el **Visualizer** los muestra en vivo.
 
 ## Tecnologías principales
 - **Miner**: Python 3 con `httpx` (API GitHub), `javalang`, `ast` y Redis como cola
