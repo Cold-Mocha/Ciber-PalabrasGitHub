@@ -1,0 +1,138 @@
+<!-- UI estática del visualizador en tiempo real -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Visualizador de Frecuencia de Palabras</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+    <main class="page">
+        <header class="hero">
+            <p class="eyebrow">Minería en vivo de GitHub</p>
+            <h1>Monitor de palabras en Python y Java</h1>
+            <p class="subtitle">Tablero en vivo de palabras en Python y Java.</p>
+        </header>
+
+        <section class="status-panel" id="status-panel">
+            <span class="status-indicator" aria-hidden="true"></span>
+            <p id="connection-status">Preparando conexión en vivo…</p>
+        </section>
+
+        <section class="kpi-grid" id="language-kpis">
+        </section>
+
+        <section class="section-block">
+            <div class="section-heading">
+                <h2>Estado del repositorio en proceso</h2>
+            </div>
+            <div class="panel" id="current-repo-card"></div>
+        </section>
+
+        <section class="section-block">
+            <div class="section-heading">
+                <h2>Top palabras combinadas</h2>
+                <p>Ranking conjunto sumando Python y Java.</p>
+                <label class="topn-inline" for="top-combined">
+                    <span>Cantidad de palabras combinadas</span>
+                    <input id="top-combined" type="number" min="1" max="100" value="15" />
+                </label>
+            </div>
+            <div class="panel combined-panel">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Palabra</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody id="top-words-combined"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="top-words-section">
+            <div class="section-head">
+                <div class="section-copy">
+                    <h2>Top palabras por lenguaje</h2>
+                    <p>Estas tablas respetan el valor Top-N configurado arriba.</p>
+                    <label class="topn-inline" for="top-n">
+                        <span>Cantidad de palabras a mostrar</span>
+                        <input id="top-n" type="number" min="1" max="100" value="15" />
+                    </label>
+                </div>
+            </div>
+            <div class="top-words-grid">
+                <article class="panel">
+                    <div class="panel-header">
+                        <h3>Python</h3>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Palabra</th>
+                                <th>Cantidad</th>
+                            </tr>
+                        </thead>
+                        <tbody id="top-words-python"></tbody>
+                    </table>
+                </article>
+                <article class="panel">
+                    <div class="panel-header">
+                        <h3>Java</h3>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Palabra</th>
+                                <th>Cantidad</th>
+                            </tr>
+                        </thead>
+                        <tbody id="top-words-java"></tbody>
+                    </table>
+                </article>
+            </div>
+        </section>
+
+        <section class="section-block">
+            <div class="section-heading">
+                <h2>Cuadro de repositorios</h2>
+                <p>Palabras y archivos aportados por lenguaje.</p>
+            </div>
+            <div class="panel">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Repo</th>
+                            <th>Python palabras</th>
+                            <th>Java palabras</th>
+                            <th>Python archivos</th>
+                            <th>Java archivos</th>
+                            <th>Top palabras Python</th>
+                            <th>Top palabras Java</th>
+                        </tr>
+                    </thead>
+                    <tbody id="repo-table-body"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="section-block">
+            <div class="section-heading">
+                <h2>Actividad en vivo (últimas 50)</h2>
+                <p>Incluye el repo, el identificador original y la palabra extraída.</p>
+            </div>
+            <div class="panel panel-spaced">
+                <ul id="activity-feed" class="activity-feed"></ul>
+            </div>
+        </section>
+
+    </main>
+
+    <script type="module" src="/static/app.js?v=20260328"></script>
+</body>
+</html>

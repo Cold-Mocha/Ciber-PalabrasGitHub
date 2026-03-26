@@ -1,0 +1,32 @@
+version: "3.9"
+
+services:
+  redis:
+    image: redis:7.2-alpine
+    ports:
+      - "6379:6379"
+
+  miner:
+    build:
+      context: ./miner
+    env_file:
+      - .env
+    environment:
+      REDIS_HOST: redis
+    depends_on:
+      - redis
+    restart: unless-stopped
+
+  visualizer:
+    build:
+      context: ./visualizer
+    env_file:
+      - .env
+    environment:
+      REDIS_HOST: redis
+    ports:
+      - "8000:8000"
+    depends_on:
+      - redis
+    restart: unless-stopped
+

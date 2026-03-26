@@ -1,0 +1,346 @@
+/* Estilos base del dashboard del visualizer. */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Inter", "Segoe UI", Arial, sans-serif;
+    background: #020617;
+    color: #e2e8f0;
+}
+
+.page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2.5rem 1rem 4rem;
+}
+
+.hero h1 {
+    margin: 0.35rem 0;
+    font-size: clamp(2.4rem, 5vw, 3.4rem);
+}
+
+.hero p {
+    margin: 0;
+    line-height: 1.5;
+}
+
+.eyebrow {
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    color: #38bdf8;
+    margin-bottom: 0.5rem;
+}
+
+.section-block {
+    margin-bottom: 2rem;
+}
+
+.section-heading {
+    margin-bottom: 0.9rem;
+}
+
+.section-heading h2 {
+    margin: 0;
+    font-size: clamp(1.4rem, 3vw, 1.9rem);
+}
+
+.section-heading p {
+    margin: 0.25rem 0 0;
+    color: #94a3b8;
+    font-size: 0.95rem;
+}
+
+.section-copy {
+    max-width: 460px;
+}
+
+.topn-inline {
+    display: inline-flex;
+    flex-direction: column;
+    margin-top: 0.75rem;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #94a3b8;
+}
+
+.topn-inline input {
+    margin-top: 0.35rem;
+    padding: 0.5rem 0.6rem;
+    border-radius: 8px;
+    border: 1px solid #334155;
+    background: #0f172a;
+    color: #e2e8f0;
+    font-size: 1rem;
+    width: 120px;
+}
+
+.status-panel {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+    padding: 0.9rem 1.1rem;
+    border-radius: 12px;
+    background: rgba(15, 23, 42, 0.95);
+    border: 1px solid rgba(148, 163, 184, 0.3);
+    font-size: 0.9rem;
+    color: #cbd5f5;
+}
+
+.status-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #eab308;
+    box-shadow: 0 0 10px rgba(234, 179, 8, 0.7);
+}
+
+.status-panel.connected .status-indicator {
+    background: #22c55e;
+    box-shadow: 0 0 12px rgba(34, 197, 94, 0.8);
+}
+
+.status-panel.error .status-indicator {
+    background: #f97316;
+    box-shadow: 0 0 12px rgba(249, 115, 22, 0.8);
+}
+
+.kpi-grid {
+    margin-bottom: 1.8rem;
+    display: flex;
+    justify-content: center;
+}
+
+.kpi-table {
+    width: min(100%, 900px);
+    border-collapse: collapse;
+    background: rgba(15, 23, 42, 0.85);
+    border: 1px solid rgba(226, 232, 240, 0.08);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(2, 6, 23, 0.7);
+}
+
+.kpi-table th,
+.kpi-table td {
+    padding: 1.1rem;
+    text-align: center;
+    font-size: 1.05rem;
+}
+
+.kpi-table th {
+    background: rgba(2, 6, 23, 0.8);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #94a3b8;
+}
+
+.kpi-table tr:nth-child(odd) td {
+    background: rgba(15, 23, 42, 0.7);
+}
+
+.kpi-table tr:nth-child(even) td {
+    background: rgba(15, 23, 42, 0.9);
+}
+
+.kpi-number {
+    font-size: 2.6rem;
+    font-weight: 700;
+}
+
+.top-words-section {
+    margin-bottom: 1.5rem;
+}
+
+.section-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 0.75rem;
+}
+
+.top-words-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.2rem;
+}
+
+.panel {
+    background: rgba(15, 23, 42, 0.85);
+    border: 1px solid rgba(226, 232, 240, 0.08);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(2, 6, 23, 0.7);
+}
+
+.panel-header {
+    padding: 1.1rem 1.3rem 0.3rem;
+    border-bottom: 1px solid rgba(226, 232, 240, 0.08);
+}
+
+.panel-header h2 {
+    margin: 0;
+    font-size: 1.25rem;
+}
+
+.panel-header p {
+    margin: 0.2rem 0 0.5rem;
+    color: #94a3b8;
+    font-size: 0.9rem;
+}
+
+.panel-spaced {
+    margin-top: 0.4rem;
+}
+
+.panel table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 0.85rem 1rem;
+    text-align: left;
+    font-size: 0.95rem;
+}
+
+th {
+    background: rgba(2, 6, 23, 0.8);
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    color: #94a3b8;
+}
+
+tbody tr:nth-child(odd) {
+    background: rgba(15, 23, 42, 0.6);
+}
+
+tbody tr:nth-child(even) {
+    background: rgba(15, 23, 42, 0.9);
+}
+
+.repo-name {
+    font-weight: 600;
+    color: #e0f2fe;
+}
+
+.lang-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.2rem 0.5rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    background: rgba(56, 189, 248, 0.15);
+    margin-right: 0.35rem;
+}
+
+.lang-chip.java {
+    background: rgba(248, 113, 113, 0.18);
+    color: #fecaca;
+}
+
+.tag {
+    display: inline-block;
+    background: rgba(59, 130, 246, 0.25);
+    padding: 0.25rem 0.45rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    margin-right: 0.25rem;
+}
+
+.activity-feed {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.activity-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.85rem 1.1rem;
+    border-bottom: 1px solid rgba(226, 232, 240, 0.05);
+}
+
+.activity-item:last-child {
+    border-bottom: none;
+}
+
+.activity-meta {
+    font-size: 0.8rem;
+    color: #94a3b8;
+}
+
+.word-chip {
+    font-weight: 600;
+    color: #facc15;
+}
+
+.repo-progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 1.2rem 0.2rem;
+}
+
+.repo-progress-header h3 {
+    margin: 0.15rem 0 0;
+}
+
+.repo-progress-meta {
+    display: flex;
+    gap: 0.7rem;
+    font-size: 0.9rem;
+    color: #94a3b8;
+}
+
+.progress-row {
+    display: grid;
+    grid-template-columns: 110px 1fr 60px;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.4rem 1.2rem;
+}
+
+.progress-row label {
+    font-size: 0.9rem;
+    color: #cbd5f5;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    background: rgba(15, 23, 42, 0.7);
+    border-radius: 999px;
+    overflow: hidden;
+    border: 1px solid rgba(148, 163, 184, 0.35);
+}
+
+.progress-bar span {
+    display: block;
+    height: 100%;
+    background: linear-gradient(90deg, #22c55e, #38bdf8);
+}
+
+.progress-row small {
+    font-size: 0.9rem;
+    color: #e2e8f0;
+    text-align: right;
+}
+
+@media (max-width: 720px) {
+    th,
+    td {
+        font-size: 0.85rem;
+    }
+}
