@@ -1,36 +1,15 @@
-# Visualizador de palabras en métodos (Python + Java)
+# Palabras Contador - Github Mining y Visualización en Tiempo Real
 
-Herramienta de diagnóstico para extraer las palabras más usadas en nombres de funciones/métodos de repos públicos en GitHub (Python y Java). Arquitectura productor–consumidor: **Miner** recolecta y envía a Redis, **Visualizer** consume en tiempo real y muestra rankings.
+Herramienta simple que lee repos públicos de GitHub (Python y Java), toma los nombres de funciones/métodos y cuenta las palabras más usadas. Funciona como productor–consumidor: el **Miner** envía datos a Redis y el **Visualizer** los muestra en vivo.
 
 ## Tecnologías principales
-- **Miner**: Python 3, `httpx` (API GitHub), `javalang` (parseo Java), `ast` (parseo Python), Redis como cola.
-- **Visualizer backend**: FastAPI + WebSockets, `redis.asyncio`, agregador en memoria.
-- **Visualizer frontend**: HTML/CSS/JS plano (sin build), consumo de REST + WS.
-- **Infra**: Docker + docker-compose (servicios: miner, visualizer, redis).
-
-## Estructura del proyecto
-```
-PythonProject/
-├─ docker-compose.yml        # Orquestación de servicios
-├─ miner/                    # Productor
-│  ├─ main.py                # Loop infinito, progreso y envío a Redis
-│  ├─ github_client.py       # Consulta repos y descarga archivos
-│  ├─ parsers.py             # Extrae nombres de funciones/métodos
-│  ├─ word_splitter.py       # Separa identificadores en palabras
-│  └─ Dockerfile             # Imagen del miner
-├─ visualizer/               # Consumidor
-│  ├─ visualizer_service/
-│  │  ├─ app.py              # FastAPI + endpoints + websockets
-│  │  ├─ aggregator.py       # Conteos, métricas y progreso en memoria
-│  │  ├─ consumer.py         # Lee de Redis y alimenta el agregador
-│  │  ├─ config.py           # Settings por env vars
-│  │  └─ static/             # Frontend (HTML, CSS, JS)
-│  └─ Dockerfile             # Imagen del visualizer
-├─ README.md                 # Este documento
-├─ .env.example              # Variables de entorno de ejemplo
-```
-
+- **Miner**: Python 3 con `httpx` (API GitHub), `javalang`, `ast` y Redis como cola
+- **Visualizer**: FastAPI + WebSockets y frontend HTML/CSS/JS que consume REST y WS
+- 
 ## Decisiones y supuestos
+- Se lee TODO el repositorio (todos los archivos .py y .java) por cada proyecto.
+- Redis se usa como cola de mensajes ligera para transportar eventos rápido entre productor y consumidor.
+- El token de GitHub amplía el número de peticiones (funciona sin él, pero con límite de 60 req/h).
 
 ## Cómo ejecutar
 Requisitos: Docker y docker-compose instalados.
