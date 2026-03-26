@@ -26,7 +26,7 @@ cd PythonProject
 
 3) Levantar servicios
 ```bash
-docker compose up --build
+sudo docker compose up --build
 ```
 4) Ver el dashboard
 - Abre: `http://localhost:8000`
